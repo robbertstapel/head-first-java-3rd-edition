@@ -14,7 +14,8 @@ It's common for an object to have methods that read or write the values of the i
 
 The difference between a class and an object is: A class is the blueprint for an object. It tells the JVM how to make an object of that particular type.
 
-**Contactlist analogy:** Your phones contact's list is empty at start, but once you enter new contact's from the predefined fields like name, phone, email (instance variables) you create instances off the "Contact Class". And the data you put in the fields (instance variables) represent the state of the instantiated contact.
+**Contactlist analogy:** 
+Your phones contact's list is empty at start, but once you enter new contact's from the predefined fields like name, phone, email (instance variables) you create instances off the "Contact Class". And the data you put in the fields (instance variables) represent the state of the instantiated contact.
 
 The methods are things you do with a contact, setName, getName, changeName. So each contact can do the same things, but each individual contact knows things unique to that contact.
 
@@ -26,8 +27,8 @@ As long as you are in Main you are not really in Objectville. It's fine for a te
 
 
 **Goals**
- - [ ] Learn the fundamentals of OOP
- - [ ] Build a simple guessing game
+- [ ] Learn the fundamentals of OOP
+- [ ] Build a simple guessing game
 
 **Skills**
 - [ ] Ability to create and use objects in Java.
