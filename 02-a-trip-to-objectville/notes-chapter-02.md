@@ -25,7 +25,6 @@ To create an object you need two Classes. One to create the blueprint and anothe
 **Quick, get out of main!**
 As long as you are in Main you are not really in Objectville. It's fine for a test program to run in the main mehod, but in a true OO application, you need objects talking to objects.
 
-
 **Goals**
 - [ ] Learn the fundamentals of OOP
 - [ ] Build a simple guessing game
