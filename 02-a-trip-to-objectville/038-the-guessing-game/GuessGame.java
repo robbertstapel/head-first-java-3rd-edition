@@ -1,5 +1,3 @@
-package Guesser;
-
 public class GuessGame {
     Player p1;
     Player p2;
