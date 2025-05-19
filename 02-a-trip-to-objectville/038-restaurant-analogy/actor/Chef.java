@@ -9,5 +9,4 @@ class Chef {
         this.name = name;
     }
 
-
 }
