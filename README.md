@@ -10,4 +10,3 @@ Run: `java ClassName`
 * Then click "Mark directory as -> Sources Root"
 * You can now directly "run the Java" files with IntelliJ
 * intelliJ will compile java to class and you can set compiler options via settings
-
