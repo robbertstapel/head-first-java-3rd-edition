@@ -1,9 +1,20 @@
 package model.order;
-
 import java.util.List;
-import model.menu.MenuItem;
 
 public class Order {
     int id;
-    List<MenuItem> items;
+    List<Integer> items;
+
+    public Order(int id, List<Integer> items) {
+        this.id = id;
+        this.items = items;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void getItems() {
+        System.out.println(items);
+    }
 }

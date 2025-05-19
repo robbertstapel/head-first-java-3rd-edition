@@ -1,6 +1,5 @@
 package actor;
 import model.menu.Menu;
-import model.order.Order;
 
 public class Waitress {
     int id;
@@ -13,14 +12,11 @@ public class Waitress {
 
     // The waitress needs to be able to see and "understand" the menu.
     // We have 3 fixed items on the menu, 1,2,3 which are starter main and dessert.
-    public void presentMenu(Menu menu){
+    public void presentMenu(Menu menu) {
+        System.out.println(this.name + " says: \"Hello! Here is our menu:\"");
         menu.openMenu();
+        System.out.println(this.name + " says: \"Let me know when you're ready to order.\"");
     }
-
-    // Take order
-//    public void takeOrder(Order order){
-//        order.takeOrder();
-//    }
 
     @Override
     public String toString() {

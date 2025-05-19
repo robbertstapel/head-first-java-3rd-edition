@@ -1,5 +1,7 @@
 package model.menu;
 
+import model.order.Order;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +13,9 @@ public class Menu {
 
     public Menu() {
         menuItems = new ArrayList<MenuItem>();
-
         menuItems.add(new MenuItem(1, "Starter", 10.00));
         menuItems.add(new MenuItem(2, "Main", 30.00));
         menuItems.add(new MenuItem(3, "Dessert", 15.00));
-
     }
 
     public void openMenu() {
@@ -24,14 +24,6 @@ public class Menu {
             System.out.println(menuItem);
         }
         System.out.println("-----------------------");
-    }
-
-    public boolean closeMenu() {
-        // right now we MAYBE need this
-        // so that we know someone is ready to order.
-        // We can also leave this to the Waitress.
-        System.out.println("Menu closed. Ready to order.");
-        return true;
     }
 
 
