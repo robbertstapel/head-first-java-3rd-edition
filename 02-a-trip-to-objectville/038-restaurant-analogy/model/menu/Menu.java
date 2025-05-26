@@ -1,7 +1,5 @@
 package model.menu;
 
-import model.order.Order;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +10,7 @@ public class Menu {
     List<MenuItem> menuItems;
 
     public Menu() {
-        menuItems = new ArrayList<MenuItem>();
+        menuItems = new ArrayList<>(); // type inference from above, it knows menuItems's type.
         menuItems.add(new MenuItem(1, "Starter", 10.00));
         menuItems.add(new MenuItem(2, "Main", 30.00));
         menuItems.add(new MenuItem(3, "Dessert", 15.00));
@@ -21,7 +19,9 @@ public class Menu {
     public void openMenu() {
         System.out.println("--------- MENU --------");
         for (MenuItem menuItem : menuItems) {
-            System.out.println(menuItem);
+            System.out.print(menuItem.id);
+            System.out.print(" - ");
+            System.out.println(menuItem.name);
         }
         System.out.println("-----------------------");
     }
