@@ -1,20 +1,21 @@
 package model.order;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
     int id;
-    List<Integer> items;
+    List<Integer> menuItemIds;
 
-    public Order(int id, List<Integer> items) {
+    public Order(int id) {
         this.id = id;
-        this.items = items;
+        this.menuItemIds = new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
+    public void addItem(int itemId) {
+        menuItemIds.add(itemId);
     }
 
-    public void getItems() {
-        System.out.println(items);
+    public void getItems(){
+        System.out.println(menuItemIds);
     }
 }

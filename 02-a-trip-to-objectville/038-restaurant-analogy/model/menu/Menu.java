@@ -27,4 +27,15 @@ public class Menu {
     }
 
 
+    public MenuItem getMenuItem(int id){
+        for(MenuItem menuItem : menuItems){
+            if(menuItem.id == id){
+                return menuItem;
+            }
+        }
+        return null;
+    }
+
+    public void closeMenu() {
+    }
 }
