@@ -5,15 +5,13 @@ import model.order.Order;
 public class Application {
     public static void main(String[] args) {
         Menu menu = new Menu();
+        Order order = new Order(1);
 
         Waitress waitress = new Waitress(1, "Jessica");
         waitress.presentMenu(menu);
 
-        Order orderOne = new Order(1);
-
-        orderOne.getItems();
-        orderOne.addItem(1);
-        orderOne.addItem(2);
-        orderOne.getItems();
+        order.addItem(1);
+        order.addItem(2);
+        Waitress.takeOrder(1, order.getItems());
     }
 }

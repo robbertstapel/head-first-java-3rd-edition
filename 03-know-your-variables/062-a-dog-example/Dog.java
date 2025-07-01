@@ -15,16 +15,16 @@ public class Dog {
 
     public static void main(String[] args) {
         // Dog object
-        Dog dog1 = new Dog();
+        Doggo dog1 = new Doggo();
         dog1.name = "Tira";
         System.out.println(dog1.name);
 
         // Dog Array
-        Dog[] dogs = new Dog[4];
-        dogs[0] = new Dog();
-        dogs[1] = new Dog();
+        Doggo[] dogs = new Doggo[4];
+        dogs[0] = new Doggo();
+        dogs[1] = new Doggo();
         dogs[2] = dogs[1];
-        dogs[3] = new Dog();
+        dogs[3] = new Doggo();
 
         dogs[0].name = "Tira";
         dogs[1].name = "Bentley";

@@ -15,7 +15,8 @@ public class Order {
         menuItemIds.add(itemId);
     }
 
-    public void getItems(){
+    public List<Integer> getItems(){
         System.out.println(menuItemIds);
+        return menuItemIds;
     }
 }
