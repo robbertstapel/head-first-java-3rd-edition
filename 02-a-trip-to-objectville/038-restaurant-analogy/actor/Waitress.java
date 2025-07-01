@@ -1,9 +1,12 @@
 package actor;
 import model.menu.Menu;
+import model.order.Order;
+import java.util.List;
 
 public class Waitress {
     int id;
     String name;
+
 
     public Waitress(int id, String name) {
         this.id = id;
@@ -17,6 +20,17 @@ public class Waitress {
         menu.openMenu();
         System.out.println(this.name + " says: \"Let me know when you're ready to order.\"");
     }
+
+    // The waitress also needs to be able to put menuItems in a Order.
+    public static Order takeOrder(int orderId, List<Integer> menuItems) {
+        Order order = new Order(orderId);
+        for (Integer menuItem : menuItems) {
+            order.addItem(menuItem);
+        }
+        System.out.println("Order created with items: " + menuItems);
+        return order;
+    }
+
 
     @Override
     public String toString() {
