@@ -28,7 +28,7 @@ class EncapsulatedDogTest {
     public static void main(String[] args) {
 
         EncapsulatedDog dogOne = new EncapsulatedDog();
-        dogOne.setSize(60);
+        dogOne.setSize(61);
 
         dogOne.getSize();
         dogOne.bark();
