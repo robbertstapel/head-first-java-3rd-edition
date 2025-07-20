@@ -87,3 +87,29 @@ By forcing other code to go trough setter methods you can validate the parameter
 ==Any place where a particular value can be used, a method call that returns that type can be used.== In javascript we call this a value expression...
 
 #### How do objects in an array behave?
+Just like any other object, the only difference is how you get to them.
+#### Declaring and initializing instance variables
+When you don't initialize an instance variable it will hold a default value. For booleans this is false, for objects it's null and with integers it;s 0;
+
+Remember, null just means a "remote control" that isn't programmed to do anything. There is a reference but no actual object.
+#### The difference between instance and local variables
+Instance variables are declared inside a class local variables within a method. Local variables do NOT get a default value and therefore MUST be initialized! If you don't the code won't compile.
+#### What about method parameters?
+Method parameters are virtually the same as local variables. They are created inside the method. Or to be correct, they are declared inside the method argument list... Method parameter will never be un-initialized because the compiler will give an error if you try to invoke a method without giving the arguments it needs. So methods are always initialized because the compiler guarantees that the method is called with arguments that match the parameters type. The arguments are assigned automatically to the parameters.
+#### Comparing variables
+Sometimes you want to know if two primitives are the same; for example, you might want to check an int result with some expected integer value. That's easy enough, just use the == operator. Same goes for an object on the heap. However, sometimes you wan't to check for equalities instead of checking if they are the same.
+
+The idea of equality of object depends on the type of object. If two individual Strings have the same characters, for example a Dog object with the var name holding the value "Bentley", they are meaningfully equivalent, regardless of wether they are two distinct objects on the heap. But what if two Dog objects have the same size and weight, do you wan't to treat them as equal? Probably not! So whether two different object should be treated as equal depends on what makes sense for that particular object type. We explore object equality later on but for now you must know that the == operator is used only to compare the bits in two variables. What those bits represent doesn't matter, they are either the same or they are not.
+
+Remember, the == operator cares only about the pattern of bits in the variable. The rules are the same whether the variable is a primitive or reference. So the == operator returns true if two reference variables refer to the same object. We don't know what the bit pattern is in this case because the JVM manages it and hides it for us.
+
+#### Bullet points
+
+- Encapsulation gives you control over who changes the data in your class and how.
+- Make an instance variable private so it can't be changed by accessing the variable directly.
+- Create a public mutator method such as a setter to control the boundaries of changing the value.
+- Instance variables will have default values when not set.
+- Local variables are not assigned a value by default, you always need to initialize them.
+- Use == to check if two primitives hold the same value. 
+- Use == to check if to references are the same. E.g. if two two object variables are actually the same object.
+- Use .equals() to see if two objects are equivalent (but not necessarily the same object), e.g. to check if two String values contain the same characters.
