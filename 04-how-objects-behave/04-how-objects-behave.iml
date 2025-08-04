@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/073-size-affects-bark" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/076-send-more-then-one-thing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/079-cool-thing-with-parameters" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/082-encapsulation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/087-sharpen-pencil" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/088-be-the-compiler" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/091-pool-puzzle" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/090-mixed-messages" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
