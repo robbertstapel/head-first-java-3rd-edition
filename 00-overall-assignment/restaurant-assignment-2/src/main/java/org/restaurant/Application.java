@@ -3,19 +3,16 @@ package org.restaurant;
 import org.restaurant.actors.Waitress;
 import org.restaurant.items.Order;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Application {
 
     public static void main(String[] args) {
-        Waitress myWaitress = new Waitress();
-        System.out.println("Hello, my name is " + myWaitress.getName() + " here is our menu:");
-        myWaitress.presentMenu();
-
-        Order orderOne = new Order(Arrays.asList("1", "2", "3"));
-        myWaitress.takeOrder(orderOne);
-
-//        myOrder.setCustomerOrder(Arrays.asList("1", "2", "3"));
-//        System.out.println(myOrder.getCustomerOrder());
+        Waitress myWaitress = new Waitress("Jessica");
+        System.out.println("Hello, my name is " + myWaitress.getName() + ". Our menu consists of a Starter, a Main Course, and a Dessert.");
+        // myWaitress.presentMenu();
+        myWaitress.takeCustomerOrder();
     }
 }
