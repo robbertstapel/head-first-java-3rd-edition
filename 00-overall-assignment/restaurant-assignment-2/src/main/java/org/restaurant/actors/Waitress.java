@@ -1,5 +1,10 @@
 package org.restaurant.actors;
 
+import lombok.RequiredArgsConstructor;
+import lombok.NonNull;
+import lombok.Getter;
+import lombok.Setter;
+
 import org.restaurant.items.Menu;
 import org.restaurant.items.Order;
 
@@ -7,73 +12,59 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// The Waitress
+@Getter // return name
+@Setter // this.name = name;
+@RequiredArgsConstructor // used for name with @NonNull, so I can instantiate like: new Waitress("Jessica");
 public class Waitress {
+
     // Instance variables
+    @NonNull
     private String name;
+    private List<String> noteBook = new ArrayList<>();
 
-    // Instance methods
-    public void presentMenu(){
-        System.out.println(Menu.starter);
-        System.out.println(Menu.mainCourse);
-        System.out.println(Menu.dessert);
-    }
-
-    List<String> customerOrderItems = new ArrayList<>();
-
-    public void takeCustomerOrder() {
+    // Use console to interact with the customer
+    public List<String> takeCustomerOrder() {
         // Use try-with-resources to automatically close the scanner
         try (Scanner inputScanner = new Scanner(System.in)) {
+
             // Ask for the Starter
             System.out.print("Would you like a starter? (yes/no): ");
-            boolean wantsStarter = inputScanner.nextLine().trim().equalsIgnoreCase("yes");
+            boolean wantsStarter = inputScanner.nextLine().trim().toLowerCase().contains("y");
             if (wantsStarter) {
-                customerOrderItems.add("1");
+                noteBook.add(Menu.starter);
                 System.out.println("Starter added to your order.");
             }
 
             // Ask for the Main Course
             System.out.print("Would you like a main course? (yes/no): ");
-            boolean wantsMainCourse = inputScanner.nextLine().trim().equalsIgnoreCase("yes");
+            boolean wantsMainCourse = inputScanner.nextLine().trim().toLowerCase().contains("y");
             if (wantsMainCourse) {
-                customerOrderItems.add("2");
+                noteBook.add(Menu.mainCourse);
                 System.out.println("Main course added to your order.");
             }
 
             // Ask for the Dessert
             System.out.print("Would you like a dessert? (yes/no): ");
-            boolean wantsDessert = inputScanner.nextLine().trim().equalsIgnoreCase("yes");
+            boolean wantsDessert = inputScanner.nextLine().trim().toLowerCase().contains("y");
             if (wantsDessert) {
-                customerOrderItems.add("3");
+                noteBook.add(Menu.dessert);
                 System.out.println("Dessert added to your order.");
             }
         }
 
-        if (customerOrderItems.isEmpty()) {
+        if (noteBook.isEmpty()) { // Leave the customer with no order
             System.out.println("It looks like you haven't ordered anything. Goodbye!");
-        } else {
-            // Create the final order and have the waitress process it
-            Order finalOrder = new Order(customerOrderItems);
-            this.takeOrder(finalOrder);
+        } else { // Inform the customer
+            System.out.println("Thanks! Ill create the final order " + noteBook + " and inform the Chef!");
         }
+        return noteBook;
     }
 
-    public Waitress(String name) {
-        this.name = name;
+    public Order processOrder(List<String> noteBook){
+        Order finalOrder = new Order(noteBook);
+        System.out.println(finalOrder.getOrderId() + " Order created!");
+        return finalOrder;
     }
-
-    public Order takeOrder (Order order){
-        System.out.println("Order taken " + order.getOrderId());
-        return order;
-    }
-
-    // Getters and Setters
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
 }
