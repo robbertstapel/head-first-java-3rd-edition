@@ -17,4 +17,6 @@ public class Order {
     private final LocalDateTime createdAt = LocalDateTime.now();
     @NonNull
     private List<String> order;
+    private String status = "created";
+
 }

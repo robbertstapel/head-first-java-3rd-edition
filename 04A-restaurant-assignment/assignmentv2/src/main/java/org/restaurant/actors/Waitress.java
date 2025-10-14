@@ -5,8 +5,10 @@ import lombok.NonNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.restaurant.events.OrderReadyEvent;
-import org.restaurant.events.OrderReadyListener;
+import org.restaurant.events.OrderCookedEvent;
+import org.restaurant.events.OrderCookedListener;
+import org.restaurant.events.OrderReceivedEvent;
+import org.restaurant.events.OrderReceivedListener;
 import org.restaurant.items.Menu;
 import org.restaurant.items.Order;
 import org.restaurant.utils.Communicator;
@@ -16,35 +18,33 @@ import java.util.List;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
-public class Waitress implements OrderReadyListener {
+public class Waitress implements OrderCookedListener {
 
     @NonNull
     private String name;
     private List<String> noteBook = new ArrayList<>();
 
-    public void greetCustomer(){
-        System.out.println("Waitress: Hello, my name is " + name + ".");
+    private OrderReceivedListener listener;
+
+    public Waitress(String name){
+        this.name = name;
     }
 
-    public List<String> takeOrder() {
+    public Order takeOrder(){
         Communicator prompt = new Communicator();
         for (String menuItem : Menu.getItems()) {
             if (prompt.askYesNoQuestion("Waitress: Would you like a " + menuItem + "?")) {
                 noteBook.add(menuItem);
             }
         }
-        return noteBook;
-    }
-
-    public Order createOrder(List<String> noteBook){
-        Order finalOrder = new Order(noteBook);
-        System.out.println("Waitress: created order: " + finalOrder.getOrderId() + " and send it to chef.");
-        return finalOrder;
+        Order order = new Order(noteBook);
+        OrderReceivedEvent event = new OrderReceivedEvent(this, order);
+        listener.onOrderReceived(event);
+        return order;
     }
 
     @Override
-    public void onOrderReady(OrderReadyEvent event) {
+    public void onOrderReady(OrderCookedEvent event) {
         Order order = event.getOrder();
         System.out.println("Waitress: received order: " + order.getOrderId());
         serveCustomer(order);
