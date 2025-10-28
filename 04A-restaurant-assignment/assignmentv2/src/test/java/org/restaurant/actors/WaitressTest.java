@@ -1,5 +1,6 @@
 package org.restaurant.actors;
 
+import org.restaurant.events.EventManager;
 import org.restaurant.items.Menu;
 import org.restaurant.items.Order;
 import java.util.Arrays;
@@ -10,10 +11,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WaitressTest {
     private Waitress waitress;
+    private final EventManager eventManager;
+
+    WaitressTest(EventManager eventManager) {
+        this.eventManager = eventManager;
+    }
 
     @BeforeEach
     void setUp() {
-        waitress = new Waitress("Jessica");
+        waitress = new Waitress("Jessica", eventManager);
     }
 
     @Test
